@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Editar Medición #{{ medicion.measurement_id }}</h2>
+    
+    <form action="{{ url_for('editar_medicion', id=medicion.measurement_id) }}" method="POST">
+        <label for="sistolica">Presión Sistólica (mmHg)</label>
+        <input type="number" name="sistolica" id="sistolica" value="{{ medicion.systolic_pressure }}" required>
+        
+        <label for="diastolica">Presión Diastólica (mmHg)</label>
+        <input type="number" name="diastolica" id="diastolica" value="{{ medicion.diastolic_pressure }}" required>
+        
+        <button type="submit">Actualizar Medición</button>
+    </form>
+    <a href="{{ url_for('gestionar_mediciones') }}">Cancelar</a>
+{% endblock %}

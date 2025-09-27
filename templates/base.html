@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioSense AI</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; background-color: #f8f9fa; color: #333; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1, h2 { color: #005f73; }
+        nav { background: #e0f7fa; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; color: #0077b6; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #e0f7fa; }
+        form { margin-top: 20px; padding: 20px; background-color: #e0f7fa; border-radius: 8px; }
+        input, select { width: calc(100% - 22px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #0077b6; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #005f73; }
+        .flash { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .flash.success { background-color: #d4edda; color: #155724; }
+        .flash.error { background-color: #f8d7da; color: #721c24; }
+        .actions a { margin-right: 5px; }
+/* --- Estilos para la Landing Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #e0f7fa; /* Un color de fondo suave, como en tus diseños */
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .hero h1 {
+            font-size: 2.5em; /* Título más grande */
+            margin-bottom: 20px;
+            color: #005f73; /* Tono oscuro de azul/verde */
+        }
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px auto; /* Centrar el párrafo */
+            line-height: 1.6;
+            color: #0077b6;
+        }
+        .cta-button {
+            background-color: #0077b6; /* Color principal para el botón */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #005f73; /* Color más oscuro al pasar el mouse */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>❤️ CardioSense AI</h1>
+            <nav>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="#">Pacientes</a>
+                <a href="{{ url_for('gestionar_mediciones') }}">Mediciones</a>
+                <a href="#">Resultados</a>
+                <a href="#">Historial</a>
+            </nav>
+        </header>
+
+        <main>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

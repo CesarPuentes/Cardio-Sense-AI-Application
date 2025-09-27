@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero">
+    <h1>El futuro del monitoreo cardíaco está aquí.</h1>
+    <p>
+        CardioSense AI te ayuda a llevar un registro preciso de tu presión arterial, 
+        predecir riesgos y recibir recomendaciones personalizadas para un estilo de vida más saludable.
+    </p>
+    <a href="{{ url_for('gestionar_mediciones') }}" class="cta-button">Empezar a Monitorear</a>
+</div>
+{% endblock %}

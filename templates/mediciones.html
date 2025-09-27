@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Carga de Mediciones</h2>
+    
+    <form action="{{ url_for('gestionar_mediciones') }}" method="POST">
+        <label for="user_id">Paciente</label>
+        <select name="user_id" id="user_id" required>
+            <option value="">Seleccionar paciente...</option>
+            {% for usuario in usuarios %}
+                <option value="{{ usuario.user_id }}">
+                    Usuario ID: {{ usuario.user_id }} ({{ usuario.client_provided_id or 'Sin ID externo' }})
+                </option>
+            {% endfor %}
+        </select>
+        
+        <label for="sistolica">Presión Sistólica (mmHg)</label>
+        <input type="number" name="sistolica" id="sistolica" placeholder="Ej: 120" required>
+        
+        <label for="diastolica">Presión Diastólica (mmHg)</label>
+        <input type="number" name="diastolica" id="diastolica" placeholder="Ej: 80" required>
+        
+        <button type="submit">Guardar Medición</button>
+    </form>
+
+    <h2>Historial Reciente de Mediciones</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Medición</th>
+                <th>Usuario ID</th>
+                <th>Presión (Sist/Diast)</th>
+                <th>Fecha y Hora</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicion in mediciones %}
+            <tr>
+                <td>{{ medicion.measurement_id }}</td>
+                <td>{{ medicion.user_id }}</td>
+                <td>{{ medicion.systolic_pressure }} / {{ medicion.diastolic_pressure }} mmHg</td>
+                <td>{{ medicion.measurement_timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td class="actions">
+                    <a href="{{ url_for('editar_medicion', id=medicion.measurement_id) }}">Editar</a>
+                    <form action="{{ url_for('borrar_medicion', id=medicion.measurement_id) }}" method="POST" style="display:inline;">
+                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta medición?');">Borrar</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">No hay mediciones registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
