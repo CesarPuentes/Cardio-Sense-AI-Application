@@ -1,62 +1,62 @@
 # ❤️ CardioSense AI
 
-CardioSense AI is a web application developed with **Flask** to monitor cardiovascular health. It allows users to log blood pressure measurements, and it is designed to provide AI-driven risk analysis and personalized recommendations.
+CardioSense AI es una aplicación web desarrollada con **Flask** para monitorear la salud cardiovascular. Permite a los usuarios registrar mediciones de presión arterial y está diseñada para ofrecer análisis de riesgo impulsados por IA y recomendaciones personalizadas.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Cómo Empezar
 
-Follow these steps to get the project running locally.
+Sigue estos pasos para ejecutar el proyecto en tu máquina local.
 
-### Prerequisites
+### Prerrequisitos
 
 * Python 3.8+
 * pip
 
-### Installation
+### Instalación
 
-1.  **Clone the repository:**
+1.  **Clona el repositorio:**
     ```bash
-    git clone <your-repository-url>
+    git clone <la-url-de-tu-repositorio>
     cd CardioSenseAI
     ```
 
-2.  **Create and activate a virtual environment (recommended):**
+2.  **Crea y activa un entorno virtual (recomendado):**
     ```bash
-    # For macOS/Linux
+    # Para macOS/Linux
     python3 -m venv venv
     source venv/bin/activate
 
-    # For Windows
+    # Para Windows
     py -m venv venv
     .\venv\Scripts\activate
     ```
 
-3.  **Install the required dependencies:**
+3.  **Instala las dependencias requeridas:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Run the application:**
+4.  **Ejecuta la aplicación:**
     ```bash
     python app.py
     ```
-    The application will be available at `http://127.0.0.1:5000`.
+    La aplicación estará disponible en `http://127.0.0.1:5000`.
 
 ---
 
-## 📸 Application Preview
+## 📸 Vista Previa de la Aplicación
 
-Here is a quick demonstration of the main functionalities of the app.
+Aquí tienes una demostración rápida de las funcionalidades principales de la aplicación.
 
-*(Replace 'Sample.gif' with the name of your GIF file in the same directory)*
-![CardioSense AI Demo](./Sample.gif)
+*(Reemplaza 'Sample.gif' con el nombre de tu archivo GIF en el mismo directorio)*
+![Demostración de CardioSense AI](./Sample.gif)
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tecnologías Utilizadas
 
 * **Backend:** Python, Flask
-* **Database ORM:** Flask-SQLAlchemy
-* **Database Engine:** SQLite
+* **ORM de Base de Datos:** Flask-SQLAlchemy
+* **Motor de Base de Datos:** SQLite
 * **Frontend:** HTML, CSS, Jinja2
