@@ -49,7 +49,6 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local.
 
 Aquí tienes una demostración rápida de las funcionalidades principales de la aplicación.
 
-*(Reemplaza 'Sample.gif' con el nombre de tu archivo GIF en el mismo directorio)*
 ![Demostración de CardioSense AI](./Sample.gif)
 
 ---
