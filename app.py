@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from models import db, Usuario, Medicion # Importamos las clases del otro archivo
 from datetime import datetime
 import os 
+from flask_migrate import Migrate 
 
 # --- CONFIGURACIÓN DE LA APP ---
 app = Flask(__name__)
@@ -21,6 +22,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'una_llave_secreta_de_re
 
 # --- INICIALIZACIÓN DE LA BASE DE DATOS ---
 db.init_app(app)
+migrate = Migrate(app, db) 
 
 # --- RUTAS DE LA APLICACIÓN ---
 
