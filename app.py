@@ -1,12 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from models import db, Usuario, Medicion # Importamos las clases del otro archivo
 from datetime import datetime
+import os 
 
 # --- CONFIGURACIÓN DE LA APP ---
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cardiosense.db' # Usamos SQLite para simplicidad
+
+# Configuración flexible de la base de datos
+# Busca una URL de base de datos en las variables de entorno (para PostgreSQL en producción/local)
+# Si no la encuentra, usa SQLite como respaldo (para desarrollo simple)
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cardiosense.db'
+    print("ADVERTENCIA: No se encontró DATABASE_URL. Usando SQLite.")
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'tu_llave_secreta_aqui' # Cambia esto por una llave segura
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'una_llave_secreta_de_respaldo')
 
 # --- INICIALIZACIÓN DE LA BASE DE DATOS ---
 db.init_app(app)

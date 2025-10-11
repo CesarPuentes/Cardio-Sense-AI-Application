@@ -1,0 +1,20 @@
+# .dockerignore
+
+# Ignorar entornos virtuales
+venv/
+env/
+
+# Ignorar archivos de caché
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Ignorar la base de datos local
+cardiosense.db
+
+# Ignorar archivos de macOS
+.DS_Store
+
+# Ignorar archivos de Git
+.git
+.gitignore
