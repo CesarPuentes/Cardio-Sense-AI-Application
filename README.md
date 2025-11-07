@@ -98,7 +98,7 @@ También puedes ejecutar la aplicación completa dentro de un contenedor Docker.
 
 Aquí tienes una demostración rápida de las funcionalidades principales de la aplicación.
 
-![Demostración de CardioSense AI](./Sample.gif)
+![Demostración de CardioSense AI](./sample.png)
 
 ---
 
